@@ -9,8 +9,11 @@ interface InPutsProps {
   placeholder?: string;
   error?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
   
 }
+
+
 
 const InPuts: React.FC<InPutsProps> = ({
   label,
@@ -19,7 +22,8 @@ const InPuts: React.FC<InPutsProps> = ({
   type = 'text',
   placeholder,
   error,
-  onChange
+  onChange,
+  className = ''
 }) => {
   return (
     <div>
@@ -31,7 +35,8 @@ const InPuts: React.FC<InPutsProps> = ({
         type={type}
         placeholder={placeholder}
         onChange={onChange}
-        className={`block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${error ? 'border-red-500' : ''}`}
+        className={`block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${className}`}
+        aria-invalid={!!error}
       />
       {error && <span className='text-red-500 text-sm'>{error}</span>}
     </div>
