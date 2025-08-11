@@ -26,7 +26,7 @@ interface TaskFormState {
 }
 
 export default function TaskModel({ isOpen, onClose, taskToEdit }: TaskModelProps) {
-  const { dispatch } = useTask(); // ✅ Use only dispatch from TaskReducer
+  const { dispatch } = useTask(); 
   const isEditing = !!taskToEdit;
 
   const [formState, setFormState] = useState<TaskFormState>({
@@ -94,7 +94,6 @@ export default function TaskModel({ isOpen, onClose, taskToEdit }: TaskModelProp
     if (!validateForm()) return;
 
     if (isEditing && taskToEdit) {
-      // ✅ Use TaskReducer directly - UPDATE_TASK
       const updatedTask: Task = {
         ...taskToEdit,
         name: formState.name,
@@ -107,7 +106,6 @@ export default function TaskModel({ isOpen, onClose, taskToEdit }: TaskModelProp
       };
       dispatch({ type: 'UPDATE_TASK', payload: updatedTask });
     } else {
-      // ✅ Use TaskReducer directly - ADD_TASK
       const newTask: Task = {
         id: Date.now(),
         name: formState.name,

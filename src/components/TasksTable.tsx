@@ -7,7 +7,7 @@ import { useState } from "react";
 import TaskModel from "./TaskModel";
 
 export default function TasksTable() {
-  const { filteredTasks, dispatch } = useTask(); // ✅ Use only dispatch
+  const { filteredTasks, dispatch } = useTask();
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [isEditModelOpen, setIsEditModelOpen] = useState(false);
 
@@ -24,7 +24,6 @@ export default function TasksTable() {
         newStatus = 'Completed';
     }
 
-    // ✅ Use TaskReducer directly - UPDATE_TASK_STATUS
     dispatch({ 
       type: 'UPDATE_TASK_STATUS', 
       payload: { id: task.id, status: newStatus }
@@ -42,7 +41,6 @@ export default function TasksTable() {
   }
 
   const handleDeleteTask = (taskId: number) => {
-    // ✅ Use TaskReducer directly - DELETE_TASK
     dispatch({ type: 'DELETE_TASK', payload: taskId });
   }
 
@@ -151,7 +149,7 @@ export default function TasksTable() {
                     </button>
                     <button
                       onClick={() => handleUpdateTask(task)}
-                      className='bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-600'
+                      className='bg-green-500 text-white px-2 py-1 text-xs rounded hover:bg-green-300'
                     >
                       Update
                     </button>

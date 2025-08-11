@@ -8,7 +8,7 @@ export default function NavBar() {
 
   return (
     <>
-      <div className='bg-blue-500 text-white p-4 fixed top-0 left-0 right-0 shadow-md z-50 '>
+      <div className='bg-green-500 text-white p-4 fixed top-0 left-0 right-0 shadow-md z-50 '>
         <div className='flex justify-between items-center'>
           <h1 className='text-lg md:text-xl font-bold truncate'>Team Task Tracker</h1>
           

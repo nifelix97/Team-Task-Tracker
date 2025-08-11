@@ -46,7 +46,7 @@ export const TaskReducer = (state: Task[], action: TaskAction): Task[] => {
             );
             break;
         case 'LOAD_TASKS':
-            return action.payload; // Don't save when loading
+            return action.payload; 
         default:
             return state;
     }
